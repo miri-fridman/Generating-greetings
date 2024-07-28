@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <title>Document</title>
+</head>
+<body>
+    <form action="/CreateBlessing", method="post">
+        <select name="event", label="select the event">
+            <option name="BirthDay">BirthDay</option>
+            <option name="Wedding">Wedding</option>
+            <option name="ThanksAndAppreciation">Thanks and Appreciation</option>
+        </select>
+        <select name="type", label="select the type of your blessing">
+            <option name="Happy">Happy</option>
+            <option name="Humorous">Humorous</option>
+            <option name="Respectfull">Respectfull</option>
+        </select>
+        <select name="length", label="select a length to your blessing">
+            <option name="Short">Short (max 100 chars)</option>
+            <option name="Medium">Medium (max 200 chars)</option>
+            <option name="Long">Long (max 250 chars)</option>
+        </select>
+        <button type="submit">create</button>
+    </form>
+</body>
+</html>

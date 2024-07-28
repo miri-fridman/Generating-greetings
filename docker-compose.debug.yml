@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  generatinggreetings:
+    image: generatinggreetings
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: development
+    ports:
+      - 8989:8989
+      - 9229:9229
+    command: ["node", "--inspect=0.0.0.0:9229", "index.js"]

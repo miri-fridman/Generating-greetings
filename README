@@ -1,0 +1,98 @@
+# README
+
+## Overview
+This is a Node.js application that utilizes the OpenAI API to generate custom blessings based on user input. The application uses Express.js as the web framework and EJS as the templating engine.
+
+## Features
+- Renders a form for users to input details for the blessing.
+- Sends a request to the OpenAI API to generate blessings based on user input.
+- Displays one of the three generated blessings initially.
+- Allows the user to view additional blessings by clicking a button.
+
+
+## Requirements
+- Node.js
+- npm
+- OpenAI API Key
+
+## Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/your-repo.git
+   cd your-repo
+2. **Install dependencies**
+    ```bash
+    npm install
+3. **Set up environment variables**
+
+    Create a `.env` file in the root directory and add your OpenAI API key:
+    ```env
+    OPENAI_API_KEY=your_openai_api_key
+    PORT=8989
+## Usage
+1. **Start the server**
+    ```bash
+    npm start
+2. **Open your browser**
+
+    Navigate to `http://localhost:8989` to access the application.
+
+3. **Input details**
+
+- Enter the event for which you want the blessing.
+- Choose the type of blessing.
+- Specify the length of the blessing in words.
+
+4. **Submit the form**
+
+- Click the submit button to generate blessings.
+- The generated blessings will be displayed on the same page.
+5. **View additional blessings**
+
+- Initially, one blessing will be displayed.
+- Click the "I want another one" button to view the second blessing.
+- Click the button again to view the third blessing.
+## Code Explanation
+
+### Dependencies
+- `express`: Web framework for Node.js.
+- `body-parser`: Middleware for parsing request bodies.
+- `dotenv`: Loads environment variables from a `.env` file.
+- `openai`: Official OpenAI API client for Node.js.
+- `ejs`: Embedded JavaScript templating.
+
+### File Structure
+- `app.js`: Main application file.
+- `views/index.ejs`: EJS template for rendering the form and results.
+
+### Main Components
+
+#### `app.js`
+- Sets up the Express app and configures middleware.
+- Defines routes for handling GET and POST requests.
+- Integrates with the OpenAI API to generate blessings.
+
+### Routes
+
+#### GET `/`
+- Renders the form for inputting blessing details.
+
+#### POST `/CreateBlessing`
+- Processes form submissions.
+- Sends a request to the OpenAI API to generate blessings.
+- Parses and displays the blessings on the same page.
+
+### Example POST Request
+- **Prompt**: The prompt sent to OpenAI API to generate blessings.
+  ```javascript
+  const prompt = `can you please write me 3 types of ${type} blessings for a ${event}, each blessing should have about ${length} words?, 
+  return the response as a parsable JSON text like follows:
+  {
+      "1":"...",
+      "2":"...",
+      "3":"..."
+  }`;
+
+## Error Handling
+- Catches and logs errors during the OpenAI API request and JSON parsing.
